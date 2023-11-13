@@ -1,0 +1,15 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html data-theme="wireframe">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/static/css/output.css" rel="stylesheet" />
+    <script src="/static/js/htmx.js"></script>
+  </head>
+  <body>
+    <header>{{template "navbar" .}}</header>
+    <main>{{template "body" .}}</main>
+  </body>
+</html>
+{{end}}

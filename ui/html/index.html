@@ -1,0 +1,57 @@
+{{define "body"}}
+<div id="new-short-url"></div>
+<div class="card card-bordered bg-base-100 shadow-xl m-8">
+  <div class="card-body items-center text-center">
+    <h2 class="card-title">URL Kısaltıcı</h2>
+    <form hx-post="/linkolustur" hx-target="#new-short-url" hx-swap="innerHTML">
+      <div class="join-vertical py-4">
+        <label class="join-item font-semibold" for="original_url"
+          >Kısaltılacak URL</label
+        >
+        <div>
+          <input
+            type="url"
+            placeholder="https://www.ornek.com"
+            class="input input-bordered w-full"
+            required
+            name="original_url"
+            id="original_url"
+          />
+        </div>
+      </div>
+      <div class="join-vertical py-4">
+        <label class="join-item font-semibold" for="tag"
+          >URL Özel Ad (Opsiyonel)</label
+        >
+
+        <div>
+          <input
+            type="text"
+            placeholder="URL'ye ait özel ad"
+            class="input input-bordered w-full join-item"
+            maxlength="12"
+            name="tag"
+            id="tag"
+          />
+        </div>
+      </div>
+      <div class="join-vertical py-4">
+        <label class="join-item font-semibold" for="expiration_date"
+          >URL Son Geçerlilik Tarihi (Opsiyonel)</label
+        >
+        <div>
+          <input
+            type="datetime-local"
+            class="input input-bordered w-full join-item"
+            name="expiration_date"
+            id="expiration_date"
+          />
+        </div>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Kısalt</button>
+      </div>
+    </form>
+  </div>
+</div>
+{{end}}

@@ -1,0 +1,57 @@
+{{define "body"}}
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2
+      class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+    >
+      Bilgileri Güncelle
+    </h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" action="" method="POST">
+      <div class="form-control w-full max-w-xs">
+        <label class="label" for="name">
+            <span class="label-text">Kullanıcı Adı</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Kullanıcı Adı"
+            class="input input-bordered w-full"
+            name="name"
+            id="name"
+            value="{{.Name}}"
+            required
+          />
+        <label class="label" for="email">
+          <span class="label-text">E-Posta</span>
+        </label>
+        <input
+          type="email"
+          placeholder="E-Posta"
+          class="input input-bordered w-full"
+          name="email"
+          id="email"
+          value="{{.Email}}"
+          required
+        />
+        <label class="label" for="password">
+          <span class="label-text">Şifre</span>
+        </label>
+        <input
+          type="password"
+          placeholder="Şifre"
+          class="input input-bordered w-full"
+          name="password"
+          id="password"
+          required
+        />
+      </div>
+
+      <div>
+        <button type="submit" class="btn place-self-end">Güncelle</button>
+      </div>
+    </form>
+  </div>
+</div>
+{{end}}

@@ -1,0 +1,46 @@
+{{define "body"}}
+<div class="m-10">
+  <div class="px-4 sm:px-0">
+    <h3 class="text-base font-semibold leading-7 text-gray-900">
+      Kullanıcı Bilgileri
+    </h3>
+    <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+      Kişisel detaylar.
+    </p>
+  </div>
+  <div class="mt-6 border-t border-gray-100">
+    <dl class="divide-y divide-gray-100">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Kullanıcı Ad</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+          {{.Name}}
+        </dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">
+          Kullanıcı Rol
+        </dt>
+        {{if .IsAdmin}}
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+          Yönetici
+        </dd>
+        {{end}}
+        {{if .IsUser}}
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+          Kullanıcı
+        </dd>
+        {{end}}
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">
+          Kullanıcı E-Posta
+        </dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+          {{.Email}}
+        </dd>
+      </div>
+    </dl>
+  </div>
+  <a class="link link-hover font-bold btn" href="/kullanici/guncelle">Güncelle</a>
+</div>
+{{end}}

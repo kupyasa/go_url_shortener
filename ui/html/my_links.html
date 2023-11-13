@@ -1,0 +1,52 @@
+{{define "body"}}
+<div
+  class="overflow-x-auto my-16"
+  style="margin-left: auto; margin-right: auto"
+>
+  <h1 class="text-xl text-center mb-8">Linklerim</h1>
+
+  <table class="table table-compact w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>Orijinal URL</th>
+        <th>Kısaltılmış URL</th>
+        <th>Özel Ad</th>
+        <th>Oluşturulma Tarihi</th>
+        <th>Son Geçerlilik Süresi</th>
+        <th>Tıklanma Sayısı</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .links}}
+      <tr class="hover">
+        <td>
+          <a target="_blank" href="{{.OriginalUrl}}" class="link link-primary"
+            >{{.OriginalUrl}}</a
+          >
+        </td>
+        <td>
+          <a target="_blank" href="{{.ShortenedUrl}}" class="link link-primary"
+            >{{.ShortenedUrl}}</a
+          >
+        </td>
+        <td>{{.Tag}}</td>
+        <td>{{ .CreatedAt.Format "02-01-2006 15:04" }}</td>
+        <td>{{ .ExpiresAt.Format "02-01-2006 15:04" }}</td>
+        <td>{{ .ClickCount }}</td>
+        <td>
+          <form method="post" action="/linklerim/{{.Id}}/sil">
+            <button
+              type="submit"
+              class="btn btn-warning btn-xs sm:btn-sm md:btn-md"
+            >
+              Sil
+            </button>
+          </form>
+        </td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+{{end}}

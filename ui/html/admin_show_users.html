@@ -1,0 +1,40 @@
+{{define "body"}}
+<div class="overflow-x-auto m-10">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Kullanıcı Adı</th>
+        <th>E-Posta</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .users}}
+      <tr class="hover">
+        <th>{{.Id}}</th>
+        <td>{{.Name}}</td>
+        <td>{{.Email}}</td>
+        <td>
+          <a
+            class="btn btn-info btn-xs sm:btn-sm md:btn-md"
+            href="/yonetici/kullanici/{{.Id}}/duzenle"
+            >Güncelle</a
+          >
+        </td>
+        <td>
+          <form method="post" action="/yonetici/kullanici/{{.Id}}/sil">
+            <button
+              type="submit"
+              class="btn btn-warning btn-xs sm:btn-sm md:btn-md"
+            >
+              Sil
+            </button>
+          </form>
+        </td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+{{end}}
